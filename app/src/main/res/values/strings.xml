@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PhotonCodeChallenge</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rows_textview_text">Rows</string>
+    <string name="columns_textview_text">Columns</string>
+    <string name="next_button_text">Next</string>
+    <string name="instructions">Choose the dimensions for the matrix</string>
 </resources>
