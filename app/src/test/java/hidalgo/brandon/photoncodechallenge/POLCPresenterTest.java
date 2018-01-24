@@ -69,7 +69,7 @@ public class POLCPresenterTest {
     }
 
     @Test
-    public void passColumnMatrix() {
+    public void passSingleRow() {
         int[][] testMatrix =
                                 {{5, 8, 5, 3, 5}};
 
@@ -79,7 +79,7 @@ public class POLCPresenterTest {
     }
 
     @Test
-    public void passRowMatrix() {
+    public void passSingleColumn() {
         int[][] testMatrix =
                                 {{5},
                                 {8},
