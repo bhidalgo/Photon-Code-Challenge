@@ -39,7 +39,7 @@ public class POLCPresenterTest {
 
         presenter.computePOLC(testMatrix);
 
-        verify(view).showSuccess();
+        verify(view).showSuccess(16, new int[]{1, 2, 3, 4, 4, 5});
     }
 
     @Test
@@ -53,7 +53,7 @@ public class POLCPresenterTest {
 
         presenter.computePOLC(testMatrix);
 
-        verify(view).showSuccess();
+        verify(view).showSuccess(11, new int[]{1, 2, 1, 5, 5, 5});
     }
 
     @Test
@@ -65,7 +65,7 @@ public class POLCPresenterTest {
 
         presenter.computePOLC(testMatrix);
 
-        verify(view).showFailure();
+        verify(view).showFailure(48, new int[]{1, 1, 1});
     }
 
     @Test
@@ -75,7 +75,7 @@ public class POLCPresenterTest {
 
         presenter.computePOLC(testMatrix);
 
-        verify(view).showSuccess();
+        verify(view).showSuccess(26, new int[]{1, 1, 1, 1, 1});
     }
 
     @Test
@@ -89,7 +89,7 @@ public class POLCPresenterTest {
 
         presenter.computePOLC(testMatrix);
 
-        verify(view).showSuccess();
+        verify(view).showSuccess(3, new int[]{4});
     }
 
     @Test
@@ -101,7 +101,7 @@ public class POLCPresenterTest {
 
         presenter.computePOLC(testMatrix);
 
-        verify(view).showFailure();
+        verify(view).showSuccess(14, new int[]{3, 1, 1, 3});
     }
 
     @Test
@@ -114,7 +114,7 @@ public class POLCPresenterTest {
 
         presenter.computePOLC(testMatrix);
 
-        verify(view).showSuccess();
+        verify(view).showSuccess(20, new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1});
     }
 
     @Test
@@ -125,7 +125,7 @@ public class POLCPresenterTest {
 
         presenter.computePOLC(testMatrix);
 
-        verify(view).showSuccess();
+        verify(view).showSuccess(0, new int[]{2, 3, 4, 1});
     }
 
     @Test
@@ -153,6 +153,6 @@ public class POLCPresenterTest {
 
         presenter.computePOLC(testMatrix);
 
-        verify(view).showSuccess();
+        verify(view).showSuccess(-1, new int[]{6, 7, 8});
     }
 }

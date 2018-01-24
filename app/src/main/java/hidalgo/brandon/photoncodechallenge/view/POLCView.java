@@ -5,9 +5,9 @@ package hidalgo.brandon.photoncodechallenge.view;
  */
 
 public interface POLCView {
-    void showSuccess();
+    void showFailure(int cost, int[] path);
 
-    void showFailure();
 
     void showPOLC();
+    void showSuccess(int cost, int[] path);
 }
