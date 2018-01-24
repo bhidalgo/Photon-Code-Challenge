@@ -126,7 +126,7 @@ public class POLCPresenterTest {
 
         presenter.computePOLC(testMatrix);
 
-        verify(view).showSuccess(20, new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1});
+        verify(view).showSuccess(0, new int[]{2, 3, 4, 1});
     }
 
     @Test
@@ -165,7 +165,7 @@ public class POLCPresenterTest {
 
         presenter.computePOLC(testMatrix);
 
-        verify(view).showSuccess(0, new int[]{2, 3, 4, 1});
+        verify(view).showSuccess(20, new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1});
     }
 
     @Test
