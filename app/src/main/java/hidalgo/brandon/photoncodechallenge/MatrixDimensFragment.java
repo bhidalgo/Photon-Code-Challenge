@@ -57,6 +57,7 @@ public class MatrixDimensFragment extends Fragment {
         return new MatrixDimensFragment();
     }
 
+    @SuppressWarnings("unused")
     public void handleOnNextClicked(View view) {
         int rows = mRowsNumberPicker.getValue();
 
