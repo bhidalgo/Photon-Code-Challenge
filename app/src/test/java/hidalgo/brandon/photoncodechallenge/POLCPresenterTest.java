@@ -95,6 +95,18 @@ public class POLCPresenterTest {
     @Test
     public void failMatrixStartingGreaterThanFifty() {
         int[][] testMatrix =
+                                {{69, 10, 19, 10, 19},
+                                {51, 23, 20, 19, 12},
+                                {60, 12, 20, 11, 10}};
+
+        presenter.computePOLC(testMatrix);
+
+        verify(view).showFailure(0, new int[]{});
+    }
+
+    @Test
+    public void passMatrixOneGreaterThanFifty() {
+        int[][] testMatrix =
                                 {{60, 3, 3, 6},
                                 {6, 3, 7, 9},
                                 {5, 6, 8, 3}};
@@ -115,6 +127,34 @@ public class POLCPresenterTest {
         presenter.computePOLC(testMatrix);
 
         verify(view).showSuccess(20, new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1});
+    }
+
+    @Test
+    public void passMatrixCompletePathAndLowerCostIncompletePath() {
+        int[][] testMatrix =
+                                {{51, 51},
+                                {0, 51},
+                                {51, 51},
+                                {5, 5}};
+
+
+        presenter.computePOLC(testMatrix);
+
+        verify(view).showSuccess(10, new int[]{4, 4});
+    }
+
+    @Test
+    public void failMatrixLongerIncompletePathAndLowerCostIncompletePath() {
+        int[][] testMatrix =
+                                {{51, 51, 51},
+                                {0, 51, 51},
+                                {51, 51, 51},
+                                {5, 5, 51}};
+
+
+        presenter.computePOLC(testMatrix);
+
+        verify(view).showFailure(10, new int[]{4, 4});
     }
 
     @Test
