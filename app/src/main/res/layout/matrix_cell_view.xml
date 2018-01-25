@@ -8,8 +8,8 @@
         android:id="@+id/cellEditText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:maxLength="3"
-        android:textSize="14sp"
         android:hint="@string/cell_default_value"
-        android:textAlignment="center" />
+        android:maxLength="3"
+        android:textAlignment="center"
+        android:textSize="14sp" />
 </LinearLayout>

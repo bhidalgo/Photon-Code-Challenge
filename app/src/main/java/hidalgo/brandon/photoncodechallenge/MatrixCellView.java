@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import static android.text.InputType.TYPE_CLASS_NUMBER;
 
@@ -27,7 +26,7 @@ public class MatrixCellView extends LinearLayout {
     public int getInput() {
         String input = mCellEditText.getText().toString();
 
-        if(input.isEmpty())
+        if (input.isEmpty())
             input = "0";
 
         return Integer.parseInt(input);

@@ -19,22 +19,21 @@ public class MatrixDimensFragment extends Fragment {
 
     private NumberPicker mColumnsNumberPicker;
 
-    public interface MatrixDimensFragmentListener {
-        void createMatrixWithDimens(int rows, int cols);
-    }
-
     public MatrixDimensFragment() {
         // Required empty public constructor
+    }
+
+    public static MatrixDimensFragment getInstance() {
+        return new MatrixDimensFragment();
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
-        try{
+        try {
             listener = (MatrixDimensFragmentListener) context;
-        }
-        catch(ClassCastException e) {
+        } catch (ClassCastException e) {
             Log.e("MatrixDimensFrag", "Context must implement the MatrixDimensFragmentListener.");
         }
     }
@@ -51,10 +50,6 @@ public class MatrixDimensFragment extends Fragment {
         binding.setFragment(this);
 
         return mainView;
-    }
-
-    public static MatrixDimensFragment getInstance() {
-        return new MatrixDimensFragment();
     }
 
     @SuppressWarnings("unused")
@@ -78,5 +73,9 @@ public class MatrixDimensFragment extends Fragment {
         mColumnsNumberPicker.setMinValue(1);
 
         mColumnsNumberPicker.setMaxValue(10);
+    }
+
+    public interface MatrixDimensFragmentListener {
+        void createMatrixWithDimens(int rows, int cols);
     }
 }

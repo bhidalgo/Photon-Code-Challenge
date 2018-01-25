@@ -1,12 +1,9 @@
 package hidalgo.brandon.photoncodechallenge;
 
-import android.content.Context;
 import android.databinding.DataBindingUtil;
-import android.opengl.Matrix;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +20,7 @@ import hidalgo.brandon.photoncodechallenge.model.POLCPresenterImpl;
 import hidalgo.brandon.photoncodechallenge.presenter.POLCPresenter;
 import hidalgo.brandon.photoncodechallenge.view.POLCView;
 
-public class MatrixFragment extends Fragment implements POLCView{
+public class MatrixFragment extends Fragment implements POLCView {
     private int mNumberRows;
 
     private int mNumberColumns;
@@ -36,6 +33,14 @@ public class MatrixFragment extends Fragment implements POLCView{
 
     public MatrixFragment() {
         // Required empty public constructor
+    }
+
+    public static MatrixFragment getInstance(Bundle args) {
+        MatrixFragment newFragment = new MatrixFragment();
+
+        newFragment.setArguments(args);
+
+        return newFragment;
     }
 
     @Override
@@ -73,10 +78,10 @@ public class MatrixFragment extends Fragment implements POLCView{
     public void handleOnNextClicked(View view) {
         int[][] matrix = new int[mNumberRows][mNumberColumns];
 
-        for(int i = 0; i < mNumberRows; i++) {
+        for (int i = 0; i < mNumberRows; i++) {
             LinearLayout currentRow = (LinearLayout) mMatrix.getChildAt(i);
 
-            for(int j = 0; j < mNumberColumns; j++) {
+            for (int j = 0; j < mNumberColumns; j++) {
                 MatrixCellView currentCell = (MatrixCellView) currentRow.getChildAt(j);
 
                 currentCell.removeHighlight();
@@ -86,14 +91,6 @@ public class MatrixFragment extends Fragment implements POLCView{
         }
 
         mPresenter.computePOLC(matrix);
-    }
-
-    public static MatrixFragment getInstance(Bundle args) {
-        MatrixFragment newFragment = new MatrixFragment();
-
-        newFragment.setArguments(args);
-
-        return newFragment;
     }
 
     private void setUpMatrix(FrameLayout parentView) {
@@ -107,7 +104,7 @@ public class MatrixFragment extends Fragment implements POLCView{
 
         mMatrix.setOrientation(LinearLayout.VERTICAL);
 
-        for(int i = 0; i < mNumberRows; i++) {
+        for (int i = 0; i < mNumberRows; i++) {
             LinearLayout matrixRow = new LinearLayout(getContext());
 
             matrixRow.setLayoutParams(layoutParams);
@@ -116,7 +113,7 @@ public class MatrixFragment extends Fragment implements POLCView{
 
             matrixRow.setGravity(Gravity.CENTER);
 
-            for(int j = 0; j < mNumberColumns; j++) {
+            for (int j = 0; j < mNumberColumns; j++) {
                 MatrixCellView cell = new MatrixCellView(getContext());
 
                 matrixRow.addView(cell);
@@ -130,7 +127,7 @@ public class MatrixFragment extends Fragment implements POLCView{
 
     @Override
     public void showFailure(int cost, int[] path) {
-        for(int i = 0; i < path.length; i++) {
+        for (int i = 0; i < path.length; i++) {
             LinearLayout currentRow = (LinearLayout) mMatrix.getChildAt(path[i] - 1);
 
             MatrixCellView currentCell = (MatrixCellView) currentRow.getChildAt(i);
@@ -143,7 +140,7 @@ public class MatrixFragment extends Fragment implements POLCView{
 
     @Override
     public void showSuccess(int cost, int[] path) {
-        for(int i = 0; i < path.length; i++) {
+        for (int i = 0; i < path.length; i++) {
             LinearLayout currentRow = (LinearLayout) mMatrix.getChildAt(path[i] - 1);
 
             MatrixCellView currentCell = (MatrixCellView) currentRow.getChildAt(i);

@@ -31,11 +31,11 @@ public class POLCPresenterTest {
     @Test
     public void passMatrixNormalFlow1() {
         int[][] testMatrix =
-                                {{3, 4, 1, 2, 8, 6},
-                                {6, 1, 8, 2, 7, 4},
-                                {5, 9, 3, 9, 9, 5},
-                                {8, 4, 1, 3, 2, 6},
-                                {3, 7, 2, 8, 6, 4}};
+                {{3, 4, 1, 2, 8, 6},
+                        {6, 1, 8, 2, 7, 4},
+                        {5, 9, 3, 9, 9, 5},
+                        {8, 4, 1, 3, 2, 6},
+                        {3, 7, 2, 8, 6, 4}};
 
         presenter.computePOLC(testMatrix);
 
@@ -45,11 +45,11 @@ public class POLCPresenterTest {
     @Test
     public void passMatrixNormalFlow2() {
         int[][] testMatrix =
-                                {{3, 4, 1, 2, 8, 6},
-                                {6, 1, 8, 2, 7, 4},
-                                {5, 9, 3, 9, 9, 5},
-                                {8, 4, 1, 3, 2, 6},
-                                {3, 7, 2, 1, 2, 3}};
+                {{3, 4, 1, 2, 8, 6},
+                        {6, 1, 8, 2, 7, 4},
+                        {5, 9, 3, 9, 9, 5},
+                        {8, 4, 1, 3, 2, 6},
+                        {3, 7, 2, 1, 2, 3}};
 
         presenter.computePOLC(testMatrix);
 
@@ -59,9 +59,9 @@ public class POLCPresenterTest {
     @Test
     public void failMatrixNoPath() {
         int[][] testMatrix =
-                                {{19, 10, 19, 10, 19},
-                                {21, 23, 20, 19, 12},
-                                {20, 12, 20, 11, 10}};
+                {{19, 10, 19, 10, 19},
+                        {21, 23, 20, 19, 12},
+                        {20, 12, 20, 11, 10}};
 
         presenter.computePOLC(testMatrix);
 
@@ -71,7 +71,7 @@ public class POLCPresenterTest {
     @Test
     public void passSingleRow() {
         int[][] testMatrix =
-                                {{5, 8, 5, 3, 5}};
+                {{5, 8, 5, 3, 5}};
 
         presenter.computePOLC(testMatrix);
 
@@ -81,11 +81,11 @@ public class POLCPresenterTest {
     @Test
     public void passSingleColumn() {
         int[][] testMatrix =
-                                {{5},
-                                {8},
-                                {5},
-                                {3},
-                                {5}};
+                {{5},
+                        {8},
+                        {5},
+                        {3},
+                        {5}};
 
         presenter.computePOLC(testMatrix);
 
@@ -95,9 +95,9 @@ public class POLCPresenterTest {
     @Test
     public void failMatrixStartingGreaterThanFifty() {
         int[][] testMatrix =
-                                {{69, 10, 19, 10, 19},
-                                {51, 23, 20, 19, 12},
-                                {60, 12, 20, 11, 10}};
+                {{69, 10, 19, 10, 19},
+                        {51, 23, 20, 19, 12},
+                        {60, 12, 20, 11, 10}};
 
         presenter.computePOLC(testMatrix);
 
@@ -107,9 +107,9 @@ public class POLCPresenterTest {
     @Test
     public void passMatrixOneGreaterThanFifty() {
         int[][] testMatrix =
-                                {{60, 3, 3, 6},
-                                {6, 3, 7, 9},
-                                {5, 6, 8, 3}};
+                {{60, 3, 3, 6},
+                        {6, 3, 7, 9},
+                        {5, 6, 8, 3}};
 
         presenter.computePOLC(testMatrix);
 
@@ -119,10 +119,10 @@ public class POLCPresenterTest {
     @Test
     public void passMatrixWithNegativeValues() {
         int[][] testMatrix =
-                                {{6, 3, -5, 9},
-                                {-5, 2, 4, 10},
-                                {3, -2, 6, 10},
-                                {6, -1, -2, 10}};
+                {{6, 3, -5, 9},
+                        {-5, 2, 4, 10},
+                        {3, -2, 6, 10},
+                        {6, -1, -2, 10}};
 
         presenter.computePOLC(testMatrix);
 
@@ -132,10 +132,10 @@ public class POLCPresenterTest {
     @Test
     public void passMatrixCompletePathAndLowerCostIncompletePath() {
         int[][] testMatrix =
-                                {{51, 51},
-                                {0, 51},
-                                {51, 51},
-                                {5, 5}};
+                {{51, 51},
+                        {0, 51},
+                        {51, 51},
+                        {5, 5}};
 
 
         presenter.computePOLC(testMatrix);
@@ -146,10 +146,10 @@ public class POLCPresenterTest {
     @Test
     public void failMatrixLongerIncompletePathAndLowerCostIncompletePath() {
         int[][] testMatrix =
-                                {{51, 51, 51},
-                                {0, 51, 51},
-                                {51, 51, 51},
-                                {5, 5, 51}};
+                {{51, 51, 51},
+                        {0, 51, 51},
+                        {51, 51, 51},
+                        {5, 5, 51}};
 
 
         presenter.computePOLC(testMatrix);
@@ -160,8 +160,8 @@ public class POLCPresenterTest {
     @Test
     public void passMatrixWithLargeNumberOfColumns() {
         int[][] testMatrix =
-                                {{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-                                {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}};
+                {{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+                        {2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}};
 
         presenter.computePOLC(testMatrix);
 
@@ -171,25 +171,25 @@ public class POLCPresenterTest {
     @Test
     public void passMatrixWithLargeNumberOfRows() {
         int[][] testMatrix =
-                                {{1, 5, 10},
-                                {3, 10, 2},
-                                {5, 10, 7},
-                                {-2, 8, 6},
-                                {6, 2, 0},
-                                {-1, 1, 1},
-                                {1, 0, 0},
-                                {0, 0, 0},
-                                {3, 4, 7},
-                                {5, 5, 10},
-                                {3, 1, 1},
-                                {1, 1, 2},
-                                {1, 0, 0},
-                                {205, 5, 5},
-                                {6, 10, 1},
-                                {1, 2, 3},
-                                {3, 3, 3},
-                                {2, 60, 1},
-                                {1, 2, 1}};
+                {{1, 5, 10},
+                        {3, 10, 2},
+                        {5, 10, 7},
+                        {-2, 8, 6},
+                        {6, 2, 0},
+                        {-1, 1, 1},
+                        {1, 0, 0},
+                        {0, 0, 0},
+                        {3, 4, 7},
+                        {5, 5, 10},
+                        {3, 1, 1},
+                        {1, 1, 2},
+                        {1, 0, 0},
+                        {205, 5, 5},
+                        {6, 10, 1},
+                        {1, 2, 3},
+                        {3, 3, 3},
+                        {2, 60, 1},
+                        {1, 2, 1}};
 
         presenter.computePOLC(testMatrix);
 
