@@ -3,11 +3,8 @@ package hidalgo.brandon.photoncodechallenge;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
 
-import hidalgo.brandon.photoncodechallenge.view.POLCView;
-
-public class MainActivity extends AppCompatActivity implements POLCView, MatrixDimensFragment.MatrixDimensFragmentListener{
+public class MainActivity extends AppCompatActivity implements MatrixDimensFragment.MatrixDimensFragmentListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,27 +17,17 @@ public class MainActivity extends AppCompatActivity implements POLCView, MatrixD
 
     @Override
     public void createMatrixWithDimens(int rows, int cols) {
-        Toast.makeText(this, "FAB Clicked!", Toast.LENGTH_SHORT).show();
-    }
+        Bundle matrixArgs = new Bundle();
 
-    @Override
-    public void showFailure(int cost, int[] path) {
+        matrixArgs.putInt("rows", rows);
 
-    }
+        matrixArgs.putInt("columns", cols);
 
-    @Override
-    public void showMatrix(int[][] matrix) {
+        MatrixFragment matrixFragment = MatrixFragment.getInstance(matrixArgs);
 
-    }
+        FragmentManager fm = getSupportFragmentManager();
 
-    @Override
-    public void showPOLC(int path) {
-
-    }
-
-    @Override
-    public void showSuccess(int cost, int[] path) {
-
+        fm.beginTransaction().replace(R.id.fragmentContainer, matrixFragment).addToBackStack("").commit();
     }
 
     private void initializeMatrixDimensFragment() {

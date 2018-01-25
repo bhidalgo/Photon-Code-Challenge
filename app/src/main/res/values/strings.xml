@@ -1,10 +1,15 @@
 <resources>
-    <string name="app_name">PhotonCodeChallenge</string>
+    <string name="app_name">Photon Code Challenge</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="rows_textview_text">Rows</string>
+    <!-- Matrix Dimension Fragment -->
     <string name="columns_textview_text">Columns</string>
-    <string name="next_button_text">Next</string>
     <string name="instructions">Choose the dimensions for the matrix</string>
+    <string name="rows_textview_text">Rows</string>
+
+    <!-- Matrix Fragment -->
+    <string name="answer">
+        Answer: %1$s\n
+        Cost: %2$d\n
+        Path: %3$s</string>
+    <string name="polc_instructions">Fill in your matrix and hit the button</string>
 </resources>
