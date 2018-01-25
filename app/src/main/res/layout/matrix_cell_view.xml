@@ -10,6 +10,6 @@
         android:layout_height="match_parent"
         android:maxLength="3"
         android:textSize="14sp"
-        android:hint="0"
+        android:hint="@string/cell_default_value"
         android:textAlignment="center" />
 </LinearLayout>
