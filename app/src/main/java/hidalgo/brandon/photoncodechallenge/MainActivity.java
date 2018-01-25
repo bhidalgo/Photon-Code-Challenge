@@ -1,8 +1,12 @@
 package hidalgo.brandon.photoncodechallenge;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.FrameLayout;
+
+import hidalgo.brandon.photoncodechallenge.databinding.MainActivityBinding;
 
 /**
  * This Activity is in charge of only handling fragment transactions
@@ -13,7 +17,9 @@ public class MainActivity extends AppCompatActivity implements MatrixDimensFragm
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.main_activity);
+        MainActivityBinding binding = DataBindingUtil.setContentView(this, R.layout.main_activity);
+
+        binding.setActivity(this);
 
         initializeMatrixDimensFragment();
     }

@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/cellViewSwitcher"
-    android:layout_width="35dp"
-    android:layout_height="wrap_content">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="view"
+            type="hidalgo.brandon.photoncodechallenge.MatrixCellView"/>
+    </data>
 
-    <EditText
-        android:id="@+id/cellEditText"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="@string/cell_default_value"
-        android:maxLength="3"
-        android:textAlignment="center"
-        android:textSize="14sp" />
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/cellViewSwitcher"
+        android:layout_width="35dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/cellEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/cell_default_value"
+            android:maxLength="3"
+            android:textAlignment="center"
+            android:textSize="14sp" />
+    </LinearLayout>
+</layout>

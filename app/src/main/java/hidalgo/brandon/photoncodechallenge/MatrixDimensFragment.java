@@ -62,6 +62,11 @@ public class MatrixDimensFragment extends Fragment {
         //Get the root view
         View mainView = binding.getRoot();
 
+        //Get the number pickers
+        mRowsNumberPicker = binding.rowsNumberPicker;
+
+        mColumnsNumberPicker = binding.columnsNumberPicker;
+
         setUpNumberPickers(mainView);
 
         //Set the binding data
@@ -88,13 +93,10 @@ public class MatrixDimensFragment extends Fragment {
      * @param parentView
      */
     private void setUpNumberPickers(View parentView) {
-        mRowsNumberPicker = parentView.findViewById(R.id.rowsNumberPicker);
 
         mRowsNumberPicker.setMinValue(1);
 
         mRowsNumberPicker.setMaxValue(10);
-
-        mColumnsNumberPicker = parentView.findViewById(R.id.columnsNumberPicker);
 
         mColumnsNumberPicker.setMinValue(1);
 

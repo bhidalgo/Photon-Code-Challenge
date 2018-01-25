@@ -78,9 +78,9 @@ public class MatrixFragment extends Fragment implements POLCView {
         //Set the binding data
         binding.setFragment(this);
 
-        ScrollView matrixContainer = mainView.findViewById(R.id.matrixContainer);
+        ScrollView matrixContainer = binding.matrixContainer;
 
-        mResultTextView = mainView.findViewById(R.id.resultTextView);
+        mResultTextView = binding.resultTextView;
 
         setUpMatrix(matrixContainer);
 

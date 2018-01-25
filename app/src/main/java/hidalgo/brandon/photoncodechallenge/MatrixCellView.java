@@ -3,8 +3,11 @@ package hidalgo.brandon.photoncodechallenge;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+
+import hidalgo.brandon.photoncodechallenge.databinding.MatrixCellViewBinding;
 
 import static android.text.InputType.TYPE_CLASS_NUMBER;
 
@@ -67,9 +70,11 @@ public class MatrixCellView extends LinearLayout {
      * @param context the context in which the view is being created
      */
     private void init(Context context) {
-        inflate(context, R.layout.matrix_cell_view, this);
+        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        mCellEditText = findViewById(R.id.cellEditText);
+        MatrixCellViewBinding binding = MatrixCellViewBinding.inflate(layoutInflater, this, true);
+
+        mCellEditText = binding.cellEditText;
 
         mCellEditText.setInputType(TYPE_CLASS_NUMBER);
 
