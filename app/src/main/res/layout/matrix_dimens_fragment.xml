@@ -1,4 +1,4 @@
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -85,7 +85,6 @@
             android:background="@color/colorAccent"
             android:onClick="@{fragment::handleOnNextClicked}"
             android:src="@drawable/ic_check_white_24dp"
-            android:text="@string/next_button_text"
             android:textColor="@android:color/white"
             android:textSize="14sp"
             app:fabSize="normal"
