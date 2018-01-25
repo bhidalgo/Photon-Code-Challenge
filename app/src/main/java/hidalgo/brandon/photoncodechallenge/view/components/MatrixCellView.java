@@ -3,6 +3,7 @@ package hidalgo.brandon.photoncodechallenge.view.components;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -78,6 +79,8 @@ public class MatrixCellView extends LinearLayout {
         mCellEditText = binding.cellEditText;
 
         mCellEditText.setInputType(TYPE_CLASS_NUMBER);
+
+        mCellEditText.setGravity(Gravity.CENTER);
 
         LayoutParams params = new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
