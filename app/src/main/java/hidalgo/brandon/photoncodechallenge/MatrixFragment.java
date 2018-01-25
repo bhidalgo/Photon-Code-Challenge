@@ -79,6 +79,8 @@ public class MatrixFragment extends Fragment implements POLCView{
             for(int j = 0; j < mNumberColumns; j++) {
                 MatrixCellView currentCell = (MatrixCellView) currentRow.getChildAt(j);
 
+                currentCell.removeHighlight();
+
                 matrix[i][j] = currentCell.getInput();
             }
         }

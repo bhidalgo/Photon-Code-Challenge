@@ -42,7 +42,7 @@ public class MatrixCellView extends LinearLayout {
     }
 
     public void removeHighlight() {
-        setBackgroundColor(getResources().getColor(R.color.white));
+        setBackgroundColor(getResources().getColor(R.color.gray));
     }
 
     private void init(Context context) {
