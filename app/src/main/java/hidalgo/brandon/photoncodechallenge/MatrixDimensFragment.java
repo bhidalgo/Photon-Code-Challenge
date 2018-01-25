@@ -12,6 +12,9 @@ import android.widget.NumberPicker;
 
 import hidalgo.brandon.photoncodechallenge.databinding.MatrixDimensFragmentBinding;
 
+/**
+ * A fragment where the user may enter their desired dimensions for the matrix
+ */
 public class MatrixDimensFragment extends Fragment {
     private MatrixDimensFragmentListener listener;
 
@@ -19,10 +22,21 @@ public class MatrixDimensFragment extends Fragment {
 
     private NumberPicker mColumnsNumberPicker;
 
+    /**
+     * An interface for communicating with the Activity
+     */
+    public interface MatrixDimensFragmentListener {
+        void createMatrixWithDimens(int rows, int cols);
+    }
+
     public MatrixDimensFragment() {
         // Required empty public constructor
     }
 
+    /**
+     * Returns a new instance of this type of fragment
+     * @return MatrixDimensFragment
+     */
     public static MatrixDimensFragment getInstance() {
         return new MatrixDimensFragment();
     }
@@ -31,6 +45,7 @@ public class MatrixDimensFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
 
+        //We will set our listener here
         try {
             listener = (MatrixDimensFragmentListener) context;
         } catch (ClassCastException e) {
@@ -41,17 +56,24 @@ public class MatrixDimensFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //Inflate the layout
         MatrixDimensFragmentBinding binding = DataBindingUtil.inflate(inflater, R.layout.matrix_dimens_fragment, container, false);
 
+        //Get the root view
         View mainView = binding.getRoot();
 
         setUpNumberPickers(mainView);
 
+        //Set the binding data
         binding.setFragment(this);
 
         return mainView;
     }
 
+    /**
+     * Gets entered dimensions and sends them to the listener
+     * @param view needed for applying onClickListeners through XML layout files
+     */
     @SuppressWarnings("unused")
     public void handleOnNextClicked(View view) {
         int rows = mRowsNumberPicker.getValue();
@@ -61,6 +83,10 @@ public class MatrixDimensFragment extends Fragment {
         listener.createMatrixWithDimens(rows, cols);
     }
 
+    /**
+     * Sets the minimum and maximum values for the number pickers
+     * @param parentView
+     */
     private void setUpNumberPickers(View parentView) {
         mRowsNumberPicker = parentView.findViewById(R.id.rowsNumberPicker);
 
@@ -73,9 +99,5 @@ public class MatrixDimensFragment extends Fragment {
         mColumnsNumberPicker.setMinValue(1);
 
         mColumnsNumberPicker.setMaxValue(10);
-    }
-
-    public interface MatrixDimensFragmentListener {
-        void createMatrixWithDimens(int rows, int cols);
     }
 }

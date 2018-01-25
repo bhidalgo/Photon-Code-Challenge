@@ -5,7 +5,9 @@ import java.util.Arrays;
 import hidalgo.brandon.photoncodechallenge.presenter.POLCPresenter;
 import hidalgo.brandon.photoncodechallenge.view.POLCView;
 
-
+/**
+ * A class to handle the business logic form finding the path of lowest cost in a given matrix.
+ */
 public class POLCPresenterImpl implements POLCPresenter {
     private POLCView mView;
 
@@ -116,8 +118,8 @@ public class POLCPresenterImpl implements POLCPresenter {
             }
         }
 
-        //If the smallest cost is less than 50 it triggers a success
-        if (pathCost < 50)
+        //If the smallest cost is less than or equal to 50 it triggers a success
+        if (pathCost <= 50)
             mView.showSuccess(pathCost, new int[]{rowOfPathCost});
         else
             //The smallest cost is fifty or more...trigger a failure
@@ -150,8 +152,8 @@ public class POLCPresenterImpl implements POLCPresenter {
 
         //Find the sum of the items within the matrix
         for (int i = 0; i < numCols; i++) {
-            //If the current sum or pathCost is fifty or more, it will abandon the path and trigger a failure
-            if (pathCost + matrix[0][i] < 50) {
+            //If the current sum or pathCost exceeds fifty, it will abandon the path and trigger a failure
+            if (pathCost + matrix[0][i] <= 50) {
                 pathCost += matrix[0][i];
 
                 path[i] = 1;
@@ -159,7 +161,7 @@ public class POLCPresenterImpl implements POLCPresenter {
                 mView.showFailure(pathCost, path);
         }
 
-        //If the for-loop finishes that means the path has a cost below fifty and will trigger a success
+        //If the for-loop finishes that means the path has a cost below or equal to fifty and will trigger a success
         mView.showSuccess(pathCost, path);
     }
 
@@ -169,8 +171,8 @@ public class POLCPresenterImpl implements POLCPresenter {
      * @param matrix a matrix composed of one item
      */
     private void findPOLCSingleItem(int[][] matrix) {
-        //If the single item is less than fifty there is a path
-        if (matrix[0][0] < 50)
+        //If the single item is less than or equal to fifty there is a path
+        if (matrix[0][0] <= 50)
             mView.showSuccess(matrix[0][0], new int[]{1});
         else
             mView.showFailure(0, new int[]{});
@@ -233,8 +235,8 @@ public class POLCPresenterImpl implements POLCPresenter {
             }
         }
 
-        //If the smallest cost in the first row is fifty or more, that means that there is no path and triggers a failure
-        if (matrix[lowestCostStartRow][0] >= 50) {
+        //If the smallest cost in the first row is more than fifty, that means that there is no path and triggers a failure
+        if (matrix[lowestCostStartRow][0] > 50) {
             mView.showFailure(0, new int[]{});
 
             return;
@@ -268,8 +270,8 @@ public class POLCPresenterImpl implements POLCPresenter {
             //choose the row with the smallest cost in the next column
             currentRow = minCostIndex(costMatrix, col, diagUp, straight, diagDown);
 
-            //Make sure our current cost does not reach 50
-            if (currentCost + matrix[currentRow][col] < 50) {
+            //Make sure our current cost does not exceed 50
+            if (currentCost + matrix[currentRow][col] <= 50) {
                 //If we are still under fifty, update the cost and update the path
                 currentCost += matrix[currentRow][col];
 
@@ -279,7 +281,7 @@ public class POLCPresenterImpl implements POLCPresenter {
                 //Add the current row at the end of our path
                 path[path.length - 1] = currentRow + 1;
             } else {
-                //If we reach 50 or more, trigger a failure and terminate
+                //If we exceed fifty, trigger a failure and terminate
                 mView.showFailure(currentCost, path);
 
                 return;
