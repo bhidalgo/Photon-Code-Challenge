@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="50dp"
-    android:layout_height="50dp"
-    android:background="@android:color/darker_gray">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cellViewSwitcher"
+    android:layout_width="35dp"
+    android:layout_height="wrap_content">
 
     <EditText
         android:id="@+id/cellEditText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:maxLength="3"
+        android:textSize="14sp"
+        android:hint="0"
         android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/cellTextView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:maxLength="3"
-        android:textAlignment="center" />
-</ViewSwitcher>
+</LinearLayout>
