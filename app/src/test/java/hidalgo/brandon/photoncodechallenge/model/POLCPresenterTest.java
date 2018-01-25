@@ -1,4 +1,4 @@
-package hidalgo.brandon.photoncodechallenge;
+package hidalgo.brandon.photoncodechallenge.model;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package hidalgo.brandon.photoncodechallenge;
+package hidalgo.brandon.photoncodechallenge.view.components;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import java.util.Arrays;
 
+import hidalgo.brandon.photoncodechallenge.R;
 import hidalgo.brandon.photoncodechallenge.databinding.MatrixFragmentBinding;
 import hidalgo.brandon.photoncodechallenge.model.POLCPresenterImpl;
 import hidalgo.brandon.photoncodechallenge.presenter.POLCPresenter;

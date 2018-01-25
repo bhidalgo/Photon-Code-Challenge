@@ -1,4 +1,4 @@
-package hidalgo.brandon.photoncodechallenge;
+package hidalgo.brandon.photoncodechallenge.view.components;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import hidalgo.brandon.photoncodechallenge.R;
 import hidalgo.brandon.photoncodechallenge.databinding.MatrixCellViewBinding;
 
 import static android.text.InputType.TYPE_CLASS_NUMBER;

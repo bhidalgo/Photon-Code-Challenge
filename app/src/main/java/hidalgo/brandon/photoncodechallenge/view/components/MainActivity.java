@@ -1,11 +1,11 @@
-package hidalgo.brandon.photoncodechallenge;
+package hidalgo.brandon.photoncodechallenge.view.components;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.FrameLayout;
 
+import hidalgo.brandon.photoncodechallenge.R;
 import hidalgo.brandon.photoncodechallenge.databinding.MainActivityBinding;
 
 /**

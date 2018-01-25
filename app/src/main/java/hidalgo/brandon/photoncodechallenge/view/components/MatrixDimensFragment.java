@@ -1,4 +1,4 @@
-package hidalgo.brandon.photoncodechallenge;
+package hidalgo.brandon.photoncodechallenge.view.components;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.NumberPicker;
 
+import hidalgo.brandon.photoncodechallenge.R;
 import hidalgo.brandon.photoncodechallenge.databinding.MatrixDimensFragmentBinding;
 
 /**
