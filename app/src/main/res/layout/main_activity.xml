@@ -5,18 +5,18 @@
     <data>
         <variable
             name="activity"
-            type="hidalgo.brandon.photoncodechallenge.MainActivity"/>
+            type="hidalgo.brandon.photoncodechallenge.view.components.MainActivity"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="hidalgo.brandon.photoncodechallenge.MainActivity">
+        tools:context="hidalgo.brandon.photoncodechallenge.view.components.MainActivity">
 
         <FrameLayout
             android:id="@+id/fragmentContainer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></FrameLayout>
+            android:layout_height="match_parent"/>
 
     </android.support.constraint.ConstraintLayout>
 </layout>

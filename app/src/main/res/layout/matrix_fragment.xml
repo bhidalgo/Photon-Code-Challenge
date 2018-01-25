@@ -6,13 +6,13 @@
 
         <variable
             name="fragment"
-            type="hidalgo.brandon.photoncodechallenge.MatrixFragment" />
+            type="hidalgo.brandon.photoncodechallenge.view.components.MatrixFragment" />
     </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="hidalgo.brandon.photoncodechallenge.MatrixFragment">
+        tools:context="hidalgo.brandon.photoncodechallenge.view.components.MatrixFragment">
 
         <TextView
             android:id="@+id/textView2"
@@ -61,6 +61,7 @@
             android:src="@drawable/ic_check_white_24dp"
             app:fabSize="normal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="8dp" />
     </android.support.constraint.ConstraintLayout>
 </layout>
