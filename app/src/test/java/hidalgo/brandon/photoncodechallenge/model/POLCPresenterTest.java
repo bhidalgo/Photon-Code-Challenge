@@ -107,6 +107,14 @@ public class POLCPresenterTest {
         verify(view).showSuccess(3, new int[]{4});
     }
 
+    /*
+     * Sample Test 6 not included since alphabetical input is not allowed
+     */
+
+    /*
+     * Sample Test 7 not included since number pickers only allow input from 1 - 10 for rows and 1-100 for columns
+     */
+
     /**
      * Sample Test 8
      */
