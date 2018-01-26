@@ -3,6 +3,7 @@ package hidalgo.brandon.photoncodechallenge.view.components;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -55,7 +56,7 @@ public class MatrixDimensFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //Inflate the layout
         MatrixDimensFragmentBinding binding = DataBindingUtil.inflate(inflater, R.layout.matrix_dimens_fragment, container, false);
@@ -68,7 +69,7 @@ public class MatrixDimensFragment extends Fragment {
 
         mColumnsNumberPicker = binding.columnsNumberPicker;
 
-        setUpNumberPickers(mainView);
+        setUpNumberPickers();
 
         //Set the binding data
         binding.setFragment(this);
@@ -91,9 +92,8 @@ public class MatrixDimensFragment extends Fragment {
 
     /**
      * Sets the minimum and maximum values for the number pickers
-     * @param parentView
      */
-    private void setUpNumberPickers(View parentView) {
+    private void setUpNumberPickers() {
 
         mRowsNumberPicker.setMinValue(1);
 
@@ -101,6 +101,6 @@ public class MatrixDimensFragment extends Fragment {
 
         mColumnsNumberPicker.setMinValue(1);
 
-        mColumnsNumberPicker.setMaxValue(10);
+        mColumnsNumberPicker.setMaxValue(100);
     }
 }

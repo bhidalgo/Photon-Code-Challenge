@@ -4,11 +4,13 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -79,9 +81,11 @@ public class MatrixFragment extends Fragment implements POLCView {
         //Set the binding data
         binding.setFragment(this);
 
-        ScrollView matrixContainer = binding.matrixContainer;
+        HorizontalScrollView matrixContainer = binding.matrixContainer;
 
         mResultTextView = binding.resultTextView;
+
+        mResultTextView.setMovementMethod(new ScrollingMovementMethod());
 
         setUpMatrix(matrixContainer);
 
@@ -118,12 +122,12 @@ public class MatrixFragment extends Fragment implements POLCView {
      * Creates a matrix view
      * @param parentView the container which will hold the created matrix
      */
-    private void setUpMatrix(FrameLayout parentView) {
+    private void setUpMatrix(HorizontalScrollView parentView) {
         //Create a new matrix
         mMatrix = new LinearLayout(getContext());
 
         //Set the layout parameters
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
         //Configure the matrix view properties
         layoutParams.gravity = Gravity.CENTER;
