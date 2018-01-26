@@ -28,6 +28,9 @@ public class POLCPresenterTest {
         presenter = new POLCPresenterImpl(view);
     }
 
+    /**
+     * Sample 1 Test
+     */
     @Test
     public void passMatrixNormalFlow1() {
         int[][] testMatrix =
@@ -42,6 +45,9 @@ public class POLCPresenterTest {
         verify(view).showSuccess(16, new int[]{1, 2, 3, 4, 4, 5});
     }
 
+    /**
+     * Sample Test 2
+     */
     @Test
     public void passMatrixNormalFlow2() {
         int[][] testMatrix =
@@ -56,6 +62,9 @@ public class POLCPresenterTest {
         verify(view).showSuccess(11, new int[]{1, 2, 1, 5, 5, 5});
     }
 
+    /**
+     * Sample Test 3
+     */
     @Test
     public void failMatrixNoPath() {
         int[][] testMatrix =
@@ -68,6 +77,9 @@ public class POLCPresenterTest {
         verify(view).showFailure(48, new int[]{1, 1, 1});
     }
 
+    /**
+     * Sample Test 4
+     */
     @Test
     public void passSingleRow() {
         int[][] testMatrix =
@@ -78,6 +90,9 @@ public class POLCPresenterTest {
         verify(view).showSuccess(26, new int[]{1, 1, 1, 1, 1});
     }
 
+    /**
+     * Sample Test 5
+     */
     @Test
     public void passSingleColumn() {
         int[][] testMatrix =
@@ -92,6 +107,9 @@ public class POLCPresenterTest {
         verify(view).showSuccess(3, new int[]{4});
     }
 
+    /**
+     * Sample Test 8
+     */
     @Test
     public void failMatrixStartingGreaterThanFifty() {
         int[][] testMatrix =
@@ -104,6 +122,9 @@ public class POLCPresenterTest {
         verify(view).showFailure(0, new int[]{});
     }
 
+    /**
+     * Sample Test 9
+     */
     @Test
     public void passMatrixOneGreaterThanFifty() {
         int[][] testMatrix =
@@ -116,6 +137,9 @@ public class POLCPresenterTest {
         verify(view).showSuccess(14, new int[]{3, 1, 1, 3});
     }
 
+    /**
+     * Sample Test 10
+     */
     @Test
     public void passMatrixWithNegativeValues() {
         int[][] testMatrix =
@@ -129,6 +153,9 @@ public class POLCPresenterTest {
         verify(view).showSuccess(0, new int[]{2, 3, 4, 1});
     }
 
+    /**
+     * Sample Test 11
+     */
     @Test
     public void passMatrixCompletePathAndLowerCostIncompletePath() {
         int[][] testMatrix =
@@ -143,6 +170,9 @@ public class POLCPresenterTest {
         verify(view).showSuccess(10, new int[]{4, 4});
     }
 
+    /**
+     * Sample Test 12
+     */
     @Test
     public void failMatrixLongerIncompletePathAndLowerCostIncompletePath() {
         int[][] testMatrix =
@@ -157,6 +187,9 @@ public class POLCPresenterTest {
         verify(view).showFailure(10, new int[]{4, 4});
     }
 
+    /**
+     * Sample Test 13
+     */
     @Test
     public void passMatrixWithLargeNumberOfColumns() {
         int[][] testMatrix =
@@ -168,6 +201,9 @@ public class POLCPresenterTest {
         verify(view).showSuccess(20, new int[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1});
     }
 
+    /**
+     * Custom Test
+     */
     @Test
     public void passMatrixWithLargeNumberOfRows() {
         int[][] testMatrix =
