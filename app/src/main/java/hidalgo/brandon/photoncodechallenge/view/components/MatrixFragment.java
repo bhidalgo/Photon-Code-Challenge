@@ -99,7 +99,7 @@ public class MatrixFragment extends Fragment implements POLCView {
     @SuppressWarnings("unused")
     public void handleOnNextClicked(View view) {
         //Create an empty matrix
-        int[][] matrix = new int[mNumberRows][mNumberColumns];
+        String[][] matrix = new String[mNumberRows][mNumberColumns];
 
         //Populate the matrix by going through each row and obtaining the value from the proper cell
         for (int i = 0; i < mNumberRows; i++) {
@@ -183,6 +183,18 @@ public class MatrixFragment extends Fragment implements POLCView {
 
         //Display the result in the designated TextView
         mResultTextView.setText(getString(R.string.answer, "No", cost, Arrays.toString(path)));
+    }
+
+    /**
+     * Shows an error message in the log and in the result TextView
+     */
+    @Override
+    public void showInvalidMatrixError() {
+        //Present in log
+        Log.e("MatrixFragment", getString(R.string.invalid_matrix_error));
+
+        //Present in UI
+        mResultTextView.setText(R.string.invalid_matrix_error);
     }
 
     /**

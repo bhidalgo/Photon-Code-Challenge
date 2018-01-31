@@ -3,6 +3,7 @@ package hidalgo.brandon.photoncodechallenge.view.components;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.widget.EditText;
@@ -35,15 +36,8 @@ public class MatrixCellView extends LinearLayout {
      * Retrieves the number entered inside the cell
      * @return integer
      */
-    public int getInput() {
-        //We need to clean and convert the input as it is natively an Editable type.
-        String input = mCellEditText.getText().toString();
-
-        //If no input provided, replace with 0
-        if (input.isEmpty())
-            return 0;
-
-        return Integer.parseInt(input);
+    public String getInput() {
+        return mCellEditText.getText().toString();
     }
 
     /**

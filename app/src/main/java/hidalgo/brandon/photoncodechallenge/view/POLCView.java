@@ -6,5 +6,7 @@ package hidalgo.brandon.photoncodechallenge.view;
 public interface POLCView {
     void showFailure(int cost, int[] path);
 
+    void showInvalidMatrixError();
+
     void showSuccess(int cost, int[] path);
 }

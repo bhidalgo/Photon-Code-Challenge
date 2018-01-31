@@ -10,4 +10,5 @@
     <string name="answer">Answer: %1$s\nCost: %2$d\nPath: %3$s</string>
     <string name="polc_instructions">Fill in your matrix and hit the button</string>
     <string name="cell_default_value">0</string>
+    <string name="invalid_matrix_error">Invalid matrix</string>
 </resources>

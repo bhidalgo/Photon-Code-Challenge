@@ -15,10 +15,8 @@
             android:id="@+id/cellEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/cell_default_value"
             android:maxLength="3"
             android:textAlignment="center"
-            android:inputType="number|numberSigned"
             android:textSize="14sp" />
     </LinearLayout>
 </layout>

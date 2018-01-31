@@ -65,65 +65,32 @@ public class POLCPresenterImpl implements POLCPresenter {
         return costMatrix;
     }
 
-    /**
-     * Takes a matrix and decides which algorithm to run depending on the shape of the matrix
-     *
-     * @param matrix the matrix on which to perform finding the path with the lowest cost.
-     */
     @Override
-    public void computePOLC(int[][] matrix) {
-        //Determine the shape of the matrix
-        int numRows = matrix.length;
-
-        int numCols = matrix[0].length;
-
-        //COLUMN MATRIX
-        if (numRows == 1) {
-            //1x1 MATRIX (A SINGLE ITEM)
-            if (numCols == 1) {
-                findPOLCSingleItem(matrix);
-            }
-            //1xN MATRIX (A ROW)
-            else {
-                findPOLCRow(matrix, numCols);
-            }
-        }
-        //ROW MATRIX (A COLUMN)
-        else if (numCols == 1) {
-            findPOLCColumn(matrix, numRows);
-        }
-        //NxN MATRIX (2 DIMENSIONAL MATRIX)
+    public void computePOLC(String[][] matrix) {
+        //First make sure we have a valid matrix
+        if(matrix == null || matrix.length <= 0 || matrix[0].length <= 0)
+            mView.showInvalidMatrixError();
         else {
-            findPOLCMatrix(matrix);
-        }
-    }
+            int rows = matrix.length;
 
-    /**
-     * Takes a matrix composed of multiple rows with shape Nx1 and calculates the path of lowest cost
-     *
-     * @param matrix  a matrix of shape Nx1
-     * @param numRows the number of rows within the column -- the N in Nx1
-     */
-    private void findPOLCColumn(int[][] matrix, int numRows) {
-        int rowOfPathCost = 0;
+            int columns = matrix[0].length;
 
-        int pathCost = matrix[0][0];
+            int[][] integerMatrix = new int[rows][columns];
 
-        //Traverse the matrix and find the smallest element aka the smallest cost
-        for (int i = 0; i < numRows; i++) {
-            if (matrix[i][0] < pathCost) {
-                pathCost = matrix[i][0];
-
-                rowOfPathCost = i + 1;
+            for(int i = 0; i < rows; i++) {
+                for(int j = 0; j < columns; j++) {
+                    try {
+                        integerMatrix[i][j] = Integer.parseInt(matrix[i][j]);
+                    }
+                    catch(NumberFormatException e) {
+                        mView.showInvalidMatrixError();
+                        return;
+                    }
+                }
             }
-        }
 
-        //If the smallest cost is less than or equal to 50 it triggers a success
-        if (pathCost <= 50)
-            mView.showSuccess(pathCost, new int[]{rowOfPathCost});
-        else
-            //The smallest cost is fifty or more...trigger a failure
-            mView.showFailure(0, new int[]{});
+            findPOLCMatrix(integerMatrix);
+        }
     }
 
     /**
@@ -137,45 +104,6 @@ public class POLCPresenterImpl implements POLCPresenter {
 
         //Use the cost matrix to determine the path of lowest cost
         traverseCostMatrixForPOLC(matrix, costMatrix);
-    }
-
-    /**
-     * Takes a matrix that is solely composed of columns with shape 1xN and computes the path of lowest cost
-     *
-     * @param matrix  a matrix with the shape 1xN
-     * @param numCols the number of columns within the matrix -- also known as N in 1xN
-     */
-    private void findPOLCRow(int[][] matrix, int numCols) {
-        int pathCost = 0;
-
-        int[] path = new int[numCols];
-
-        //Find the sum of the items within the matrix
-        for (int i = 0; i < numCols; i++) {
-            //If the current sum or pathCost exceeds fifty, it will abandon the path and trigger a failure
-            if (pathCost + matrix[0][i] <= 50) {
-                pathCost += matrix[0][i];
-
-                path[i] = 1;
-            } else
-                mView.showFailure(pathCost, path);
-        }
-
-        //If the for-loop finishes that means the path has a cost below or equal to fifty and will trigger a success
-        mView.showSuccess(pathCost, path);
-    }
-
-    /**
-     * Takes a matrix composed of one item and determines the path of lowest cost
-     *
-     * @param matrix a matrix composed of one item
-     */
-    private void findPOLCSingleItem(int[][] matrix) {
-        //If the single item is less than or equal to fifty there is a path
-        if (matrix[0][0] <= 50)
-            mView.showSuccess(matrix[0][0], new int[]{1});
-        else
-            mView.showFailure(0, new int[]{});
     }
 
     /**
