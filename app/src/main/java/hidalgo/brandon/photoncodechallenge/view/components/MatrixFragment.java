@@ -5,15 +5,14 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.method.ScrollingMovementMethod;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Arrays;
 
@@ -31,7 +30,7 @@ public class MatrixFragment extends Fragment implements POLCView {
 
     private int mNumberColumns;
 
-    private LinearLayout mMatrix;
+    private MatrixView mMatrixView;
 
     private TextView mResultTextView;
 
@@ -81,13 +80,13 @@ public class MatrixFragment extends Fragment implements POLCView {
         //Set the binding data
         binding.setFragment(this);
 
-        HorizontalScrollView matrixContainer = binding.matrixContainer;
-
         mResultTextView = binding.resultTextView;
 
-        mResultTextView.setMovementMethod(new ScrollingMovementMethod());
+        mMatrixView = binding.matrixView;
 
-        setUpMatrix(matrixContainer);
+        mMatrixView.init(mNumberRows, mNumberColumns);
+
+        mResultTextView.setMovementMethod(new ScrollingMovementMethod());
 
         return mainView;
     }
@@ -103,7 +102,7 @@ public class MatrixFragment extends Fragment implements POLCView {
 
         //Populate the matrix by going through each row and obtaining the value from the proper cell
         for (int i = 0; i < mNumberRows; i++) {
-            LinearLayout currentRow = (LinearLayout) mMatrix.getChildAt(i);
+            LinearLayout currentRow = (LinearLayout) mMatrixView.getChildAt(i);
 
             for (int j = 0; j < mNumberColumns; j++) {
                 MatrixCellView currentCell = (MatrixCellView) currentRow.getChildAt(j);
@@ -119,54 +118,6 @@ public class MatrixFragment extends Fragment implements POLCView {
     }
 
     /**
-     * Creates a matrix view
-     * @param parentView the container which will hold the created matrix
-     */
-    private void setUpMatrix(HorizontalScrollView parentView) {
-        //Create a new matrix
-        mMatrix = new LinearLayout(getContext());
-
-        //Set the layout parameters
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
-        //Configure the matrix view properties
-        layoutParams.gravity = Gravity.CENTER;
-
-        mMatrix.setLayoutParams(layoutParams);
-
-        mMatrix.setOrientation(LinearLayout.VERTICAL);
-
-        //Create the children view of the matrix (LinearLayouts that contain an array of MatrixCellViews)
-        for (int i = 0; i < mNumberRows; i++) {
-            //Create the new row
-            LinearLayout matrixRow = new LinearLayout(getContext());
-
-            //Set the layout parameters
-            matrixRow.setLayoutParams(layoutParams);
-
-            //Configure the row
-            matrixRow.setOrientation(LinearLayout.HORIZONTAL);
-
-            matrixRow.setGravity(Gravity.CENTER);
-
-            //Create the matrix cells for each row
-            for (int j = 0; j < mNumberColumns; j++) {
-                //Create the cell
-                MatrixCellView cell = new MatrixCellView(getContext());
-
-                //Add it to the row
-                matrixRow.addView(cell);
-            }
-
-            //Add the new row to the matrix
-            mMatrix.addView(matrixRow);
-        }
-
-        //Attach the matrix tot he container
-        parentView.addView(mMatrix);
-    }
-
-    /**
      * Traverses the matrix following the path as a guide to which rows (the path array elements) to highlight red in each column (the path array index)
      * @param cost the cost of the path
      * @param path the steps of the path
@@ -174,7 +125,7 @@ public class MatrixFragment extends Fragment implements POLCView {
     @Override
     public void showFailure(int cost, int[] path) {
         for (int i = 0; i < path.length; i++) {
-            LinearLayout currentRow = (LinearLayout) mMatrix.getChildAt(path[i] - 1);
+            LinearLayout currentRow = (LinearLayout) mMatrixView.getChildAt(path[i] - 1);
 
             MatrixCellView currentCell = (MatrixCellView) currentRow.getChildAt(i);
 
@@ -205,7 +156,7 @@ public class MatrixFragment extends Fragment implements POLCView {
     @Override
     public void showSuccess(int cost, int[] path) {
         for (int i = 0; i < path.length; i++) {
-            LinearLayout currentRow = (LinearLayout) mMatrix.getChildAt(path[i] - 1);
+            LinearLayout currentRow = (LinearLayout) mMatrixView.getChildAt(path[i] - 1);
 
             MatrixCellView currentCell = (MatrixCellView) currentRow.getChildAt(i);
 
