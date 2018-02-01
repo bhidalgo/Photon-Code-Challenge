@@ -6,6 +6,9 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 
+/**
+ * A View that represents a NxN Matrix
+ */
 public class MatrixView extends LinearLayout {
     private int mRows;
 
@@ -23,6 +26,11 @@ public class MatrixView extends LinearLayout {
         super(context, attrs, defStyleAttr);
     }
 
+    /**
+     * Builds the MatrixView with the desired dimensions
+     * @param numberRows the number of desired rows
+     * @param numberColumns the number of desired columns
+     */
     public void init(int numberRows, int numberColumns) {
         mRows = numberRows;
 
@@ -62,10 +70,18 @@ public class MatrixView extends LinearLayout {
         }
     }
 
+    /**
+     * Returns the number of rows this MatrixView should have
+     * @return int
+     */
     public int getRows() {
         return mRows;
     }
 
+    /**
+     * Returns the number of columns this MatrixView should have
+     * @return
+     */
     public int getColumns() {
         return mColumns;
     }

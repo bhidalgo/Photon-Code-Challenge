@@ -10,7 +10,15 @@ import org.hamcrest.Matchers;
 
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 
+/**
+ * A class for performing ViewActions on a NumberPicker
+ */
 public class NumberPicker {
+    /**
+     * Sets the value of a NumberPicker
+     * @param numberPickerMatcher the Matcher of the NumberPicker
+     * @param value the value to be set
+     */
     public static void setValue(Matcher<View> numberPickerMatcher, final int value) {
         Espresso.onView(numberPickerMatcher).perform(new ViewAction() {
             @Override

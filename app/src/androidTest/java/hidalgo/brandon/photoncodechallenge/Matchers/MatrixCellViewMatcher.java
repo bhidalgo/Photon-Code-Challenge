@@ -9,7 +9,16 @@ import org.hamcrest.Matcher;
 
 import hidalgo.brandon.photoncodechallenge.view.components.MatrixCellView;
 
+/**
+ * A class providing Hamcrest Matchers for MatrixCellViews
+ */
 public class MatrixCellViewMatcher {
+
+    /**
+     * A matcher for matching against a MatrixCellView
+     *
+     * @return boolean
+     */
     public static Matcher<View> isMatrixCell() {
         return new Matcher<View>() {
             @Override
@@ -34,6 +43,12 @@ public class MatrixCellViewMatcher {
         };
     }
 
+    /**
+     * A matcher for matching against a highlighted cell
+     *
+     * @param highlightColor the expected highlight color
+     * @return boolean
+     */
     public static Matcher<View> withHighlight(final int highlightColor) {
         return new BoundedMatcher<View, MatrixCellView>(MatrixCellView.class) {
             @Override
@@ -54,6 +69,12 @@ public class MatrixCellViewMatcher {
         };
     }
 
+    /**
+     * A matcher for matching against a MatrixCellView's input
+     *
+     * @param input the expected input
+     * @return boolean
+     */
     public static Matcher<View> withInput(final String input) {
         return new BoundedMatcher<View, MatrixCellView>(MatrixCellView.class) {
             @Override

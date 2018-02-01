@@ -17,6 +17,9 @@ import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 
+/**
+ * A suite of tests for the MainActivity
+ */
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
     @Rule
@@ -37,6 +40,12 @@ public class MainActivityTest {
                 .check(matches(isDisplayed()));
 
         onView(withId(R.id.columnsNumberPicker))
+                .check(matches(isDisplayed()));
+
+        onView(withId(R.id.textView))
+                .check(matches(isDisplayed()));
+
+        onView(withId(R.id.appCompatButton))
                 .check(matches(isDisplayed()));
     }
 
@@ -79,6 +88,11 @@ public class MainActivityTest {
         testCreateMatrixWithDimensWithDimens(1, 100);
     }
 
+    /**
+     * Tests whether the MainActivity is displaying a matrix with given dimensions
+     * @param rowsToBeSelected the amount of rows desired
+     * @param columnsToBeSelected the amount of columns desired
+     */
     private void testCreateMatrixWithDimensWithDimens(final int rowsToBeSelected, final int columnsToBeSelected) {
         NumberPicker.setValue(withId(R.id.rowsNumberPicker), rowsToBeSelected);
 
