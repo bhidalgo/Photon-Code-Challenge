@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements MatrixDimensFragm
     /**
      * Adds the MatrixDimensFragment to the fragment container
      */
-    private void initializeMatrixDimensFragment() {
+    public void initializeMatrixDimensFragment() {
         //Retrieve an instance of the fragment
         MatrixDimensFragment matrixDimensFragment = MatrixDimensFragment.getInstance();
 

@@ -88,8 +88,7 @@ public class MatrixDimensFragment extends Fragment {
     /**
      * Sets the minimum and maximum values for the number pickers
      */
-    private void setUpNumberPickers() {
-
+    public void setUpNumberPickers() {
         mRowsNumberPicker.setMinValue(1);
 
         mRowsNumberPicker.setMaxValue(10);
