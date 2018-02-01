@@ -84,6 +84,7 @@ public class POLCPresenterImpl implements POLCPresenter {
                     }
                     catch(NumberFormatException e) {
                         mView.showInvalidMatrixError();
+
                         return;
                     }
                 }

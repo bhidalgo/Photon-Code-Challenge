@@ -107,7 +107,7 @@ public class POLCPresenterTest {
         verify(view).showSuccess(3, new int[]{4});
     }
 
-    /*
+    /**
      * Sample Test 6
      */
     @Test
@@ -122,7 +122,7 @@ public class POLCPresenterTest {
         verify(view).showInvalidMatrixError();
     }
 
-    /*
+    /**
      * Sample Test 7
      */
     @Test
