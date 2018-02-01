@@ -1,6 +1,7 @@
 package hidalgo.brandon.photoncodechallenge;
 
 import android.support.test.InstrumentationRegistry;
+import android.support.test.espresso.Espresso;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.v4.content.ContextCompat;
@@ -139,8 +140,12 @@ public class MatrixCellViewTest {
         onView(first(withId(R.id.cellEditText)))
                 .perform(typeText(input));
 
+        Espresso.closeSoftKeyboard();
+
         onView(second(withId(R.id.cellEditText)))
                 .perform(typeText(input));
+
+        Espresso.closeSoftKeyboard();
 
         clickSubmitMatrix();
 
