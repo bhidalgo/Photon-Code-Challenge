@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements MatrixDimensFragm
 
     /**
      * Adds the MatrixFragment to the fragment container
+     *
      * @param rows the amount of rows in the matrix
      * @param cols the amount of columns in the matrix
      */

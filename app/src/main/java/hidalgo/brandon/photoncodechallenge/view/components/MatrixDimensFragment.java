@@ -24,19 +24,13 @@ public class MatrixDimensFragment extends Fragment {
 
     private NumberPicker mColumnsNumberPicker;
 
-    /**
-     * An interface for communicating with the Activity
-     */
-    public interface MatrixDimensFragmentListener {
-        void createMatrixWithDimens(int rows, int cols);
-    }
-
     public MatrixDimensFragment() {
         // Required empty public constructor
     }
 
     /**
      * Returns a new instance of this type of fragment
+     *
      * @return MatrixDimensFragment
      */
     public static MatrixDimensFragment getInstance() {
@@ -79,6 +73,7 @@ public class MatrixDimensFragment extends Fragment {
 
     /**
      * Gets entered dimensions and sends them to the listener
+     *
      * @param view needed for applying onClickListeners through XML layout files
      */
     @SuppressWarnings("unused")
@@ -102,5 +97,12 @@ public class MatrixDimensFragment extends Fragment {
         mColumnsNumberPicker.setMinValue(1);
 
         mColumnsNumberPicker.setMaxValue(100);
+    }
+
+    /**
+     * An interface for communicating with the Activity
+     */
+    public interface MatrixDimensFragmentListener {
+        void createMatrixWithDimens(int rows, int cols);
     }
 }

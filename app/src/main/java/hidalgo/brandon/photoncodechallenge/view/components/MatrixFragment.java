@@ -9,10 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Arrays;
 
@@ -42,6 +40,7 @@ public class MatrixFragment extends Fragment implements POLCView {
 
     /**
      * Returns a new instance of this fragment
+     *
      * @param args a bundle containing the row and column values for the matrix
      * @return MatrixFragment
      */
@@ -93,6 +92,7 @@ public class MatrixFragment extends Fragment implements POLCView {
 
     /**
      * Creates the matrix from the inputted values and instructs the presenter to computer the path of lowest cost
+     *
      * @param view need for setting OnClickListeners through the XML layout file
      */
     @SuppressWarnings("unused")
@@ -119,6 +119,7 @@ public class MatrixFragment extends Fragment implements POLCView {
 
     /**
      * Traverses the matrix following the path as a guide to which rows (the path array elements) to highlight red in each column (the path array index)
+     *
      * @param cost the cost of the path
      * @param path the steps of the path
      */
@@ -150,6 +151,7 @@ public class MatrixFragment extends Fragment implements POLCView {
 
     /**
      * Traverses the matrix following the path as a guide to which rows (the path array elements) to highlight yellow in each column (the path array index)
+     *
      * @param cost the cost of the path
      * @param path the steps of the path
      */

@@ -1,14 +1,12 @@
 package hidalgo.brandon.photoncodechallenge.Matchers;
 
 import android.graphics.drawable.ColorDrawable;
-import android.opengl.Matrix;
 import android.support.test.espresso.matcher.BoundedMatcher;
 import android.view.View;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
-import hidalgo.brandon.photoncodechallenge.R;
 import hidalgo.brandon.photoncodechallenge.view.components.MatrixCellView;
 
 public class MatrixCellViewMatcher {
@@ -45,7 +43,7 @@ public class MatrixCellViewMatcher {
 
             @Override
             protected boolean matchesSafely(MatrixCellView item) {
-                if(item.getBackground() instanceof ColorDrawable) {
+                if (item.getBackground() instanceof ColorDrawable) {
                     int actualColor = ((ColorDrawable) item.getBackground()).getColor();
 
                     return actualColor == highlightColor;

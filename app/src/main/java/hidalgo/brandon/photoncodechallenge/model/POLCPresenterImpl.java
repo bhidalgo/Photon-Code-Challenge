@@ -68,7 +68,7 @@ public class POLCPresenterImpl implements POLCPresenter {
     @Override
     public void computePOLC(String[][] matrix) {
         //First make sure we have a valid matrix
-        if(matrix == null || matrix.length <= 0 || matrix[0].length <= 0)
+        if (matrix == null || matrix.length <= 0 || matrix[0].length <= 0)
             mView.showInvalidMatrixError();
         else {
             int rows = matrix.length;
@@ -77,12 +77,11 @@ public class POLCPresenterImpl implements POLCPresenter {
 
             int[][] integerMatrix = new int[rows][columns];
 
-            for(int i = 0; i < rows; i++) {
-                for(int j = 0; j < columns; j++) {
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
                     try {
                         integerMatrix[i][j] = Integer.parseInt(matrix[i][j]);
-                    }
-                    catch(NumberFormatException e) {
+                    } catch (NumberFormatException e) {
                         mView.showInvalidMatrixError();
 
                         return;

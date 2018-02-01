@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.LinearLayout;
 
-public class MatrixView extends LinearLayout{
+public class MatrixView extends LinearLayout {
     private int mRows;
 
     private int mColumns;
