@@ -3,6 +3,7 @@ package hidalgo.brandon.photoncodechallenge.view.components;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.widget.EditText;
@@ -10,6 +11,8 @@ import android.widget.LinearLayout;
 
 import hidalgo.brandon.photoncodechallenge.R;
 import hidalgo.brandon.photoncodechallenge.databinding.MatrixCellViewBinding;
+
+import static android.text.InputType.TYPE_CLASS_NUMBER;
 
 /**
  * The custom view acts as a cell in the matrix
@@ -31,7 +34,6 @@ public class MatrixCellView extends LinearLayout {
 
     /**
      * Retrieves the number entered inside the cell
-     *
      * @return integer
      */
     public String getInput() {
@@ -61,10 +63,9 @@ public class MatrixCellView extends LinearLayout {
 
     /**
      * Inflates the view, initializes its children, and applies layout parameters
-     *
      * @param context the context in which the view is being created
      */
-    private void init(Context context) {
+    public void init(Context context) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         MatrixCellViewBinding binding = MatrixCellViewBinding.inflate(layoutInflater, this, true);
