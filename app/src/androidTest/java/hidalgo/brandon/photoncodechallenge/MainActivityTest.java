@@ -6,7 +6,6 @@ import android.support.test.espresso.ViewAssertion;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.view.View;
-import android.widget.NumberPicker;
 
 import org.hamcrest.Matcher;
 import org.hamcrest.Matchers;
@@ -15,6 +14,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import hidalgo.brandon.photoncodechallenge.Matchers.MatrixMatchers;
+import hidalgo.brandon.photoncodechallenge.ViewActions.NumberPicker;
 import hidalgo.brandon.photoncodechallenge.view.components.MainActivity;
 
 import static android.support.test.espresso.Espresso.onView;
@@ -87,41 +87,9 @@ public class MainActivityTest {
     }
 
     private void testCreateMatrixWithDimensWithDimens(final int rowsToBeSelected, final int columnsToBeSelected) {
-        onView(withId(R.id.rowsNumberPicker))
-                .perform(new ViewAction() {
-                    @Override
-                    public Matcher<View> getConstraints() {
-                        return Matchers.instanceOf(NumberPicker.class);
-                    }
+        NumberPicker.setValue(withId(R.id.rowsNumberPicker), rowsToBeSelected);
 
-                    @Override
-                    public String getDescription() {
-                        return "Set rows NumberPicker value.";
-                    }
-
-                    @Override
-                    public void perform(UiController uiController, View view) {
-                        ((NumberPicker) view).setValue(rowsToBeSelected);
-                    }
-                }, closeSoftKeyboard());
-
-        onView(withId(R.id.columnsNumberPicker))
-                .perform(new ViewAction() {
-                    @Override
-                    public Matcher<View> getConstraints() {
-                        return Matchers.instanceOf(NumberPicker.class);
-                    }
-
-                    @Override
-                    public String getDescription() {
-                        return "Set columns NumberPicker value.";
-                    }
-
-                    @Override
-                    public void perform(UiController uiController, View view) {
-                        ((NumberPicker) view).setValue(columnsToBeSelected);
-                    }
-                }, closeSoftKeyboard());
+        NumberPicker.setValue(withId(R.id.columnsNumberPicker), columnsToBeSelected);
 
         onView(withId(R.id.appCompatButton))
                 .perform(click());
